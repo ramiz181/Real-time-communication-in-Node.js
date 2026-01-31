@@ -1,0 +1,39 @@
+
+Polling:
+
+    client ➜ Server
+        client repeatedly ask server after specific interval of time if there is update/data/response 
+    
+    - it is client-driven and time-based 
+
+    e.g 
+        - every 30 seconds, API hits ... /api/orders/status
+        - server responds with current status
+
+.
+.
+.
+.
+
+Server sent events (SSE)
+.
+.
+.
+.
+
+WebHooks:
+    The server notifies the client automatically when an event happens.
+
+    e.g 
+        - Stripe sends a POST request to your server when payment succeeds
+.
+.
+.
+.
+
+WebSockets
+
+    client ⇆ server 
+        bi-directional communication network
+        
+    sclable with brokers (e.g kafka, redis (not just DB also works as broker))
