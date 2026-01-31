@@ -1,11 +1,11 @@
 
 Polling:
 
+    mental model => client-driven + time-based 
+
     client ➜ Server
         client repeatedly ask server after specific interval of time if there is update/data/response 
     
-    - it is client-driven and time-based 
-
     e.g 
         - every 30 seconds, API hits ... /api/orders/status
         - server responds with current status
@@ -22,6 +22,17 @@ Server sent events (SSE)
 .
 
 WebHooks:
+
+    server ⇆ server
+    
+    mental model => Server-driven + Push-event
+
+    (One-way communication)
+    - Client registers a callback URL (URL, jhan server service puri hony pr ya event trigger hony pr response back kryga)
+    - Event occurs
+    - Server sends an HTTP POST
+    - Connection closes
+
     The server notifies the client automatically when an event happens.
 
     e.g 
@@ -33,7 +44,20 @@ WebHooks:
 
 WebSockets
 
+    mental model => Server-driven + Push-event (bi-directional)
+
     client ⇆ server 
-        bi-directional communication network
+    server ⇆ server ==> only when one acts as a client
+    
+        - persistent and bi-directional communication network
+        - once connected client and server communicate anytime
+        - connection remains open
+        - initiate by the client, terminates by the server
         
-    sclable with brokers (e.g kafka, redis (not just DB also works as broker))
+    complex to scale
+        => sclable with brokers (e.g kafka, redis (not just DB also works as broker))
+
+    Use cases:
+        Chat apps
+        real-time dashboards
+        real-time collaborations (google docs)
