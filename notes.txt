@@ -16,6 +16,15 @@ Polling:
 .
 
 Server sent events (SSE)
+    
+    server ➜ client only
+
+    use case: 
+        - news broadcasting
+        - instagram lives 
+        - sent notifications to multiple users, etc.
+    
+
 .
 .
 .
@@ -44,6 +53,8 @@ WebHooks:
 
 WebSockets
 
+    WebSocket itself is a protocol which canbe use with any language
+
     mental model => Server-driven + Push-event (bi-directional)
 
     client ⇆ server 
@@ -61,3 +72,8 @@ WebSockets
         Chat apps
         real-time dashboards
         real-time collaborations (google docs)
+
+
+    how it works:
+        -- first, client send http handshake request to server with an "upgrade header"
+        -- if server agrees, it replies with status code 101 (switching protocol response)
